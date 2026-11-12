@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-11-12">
+<meta name="description" content="Steps 3 and 4: predictive quality, and human judgement against automated selection.">
+
+<title>Analysis plan – US forecast evaluation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-7ab7eb6f69b5f1660abf394e13e363fe.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">US forecast evaluation</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../../notebook/pages/analysis-plan.html" aria-current="page"> 
+<span class="menu-text">Plan</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#forecast-evaluation-and-model-selection-analysis-plan" id="toc-forecast-evaluation-and-model-selection-analysis-plan" class="nav-link active" data-scroll-target="#forecast-evaluation-and-model-selection-analysis-plan">Forecast evaluation and model selection: analysis plan</a>
+  <ul class="collapse">
+  <li><a href="#context" id="toc-context" class="nav-link" data-scroll-target="#context">1. Context</a></li>
+  <li><a href="#rationale" id="toc-rationale" class="nav-link" data-scroll-target="#rationale">2. Rationale</a></li>
+  <li><a href="#aim-and-objectives" id="toc-aim-and-objectives" class="nav-link" data-scroll-target="#aim-and-objectives">3. Aim and objectives</a></li>
+  <li><a href="#scope-where-this-sits-in-a-wider-design" id="toc-scope-where-this-sits-in-a-wider-design" class="nav-link" data-scroll-target="#scope-where-this-sits-in-a-wider-design">4. Scope: where this sits in a wider design</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">5. Data</a></li>
+  <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">6. Methods</a>
+  <ul class="collapse">
+  <li><a href="#common-scoring-framework" id="toc-common-scoring-framework" class="nav-link" data-scroll-target="#common-scoring-framework">6.1 Common scoring framework</a></li>
+  <li><a href="#objective-1-predictive-quality-and-the-effect-of-evaluation-choices" id="toc-objective-1-predictive-quality-and-the-effect-of-evaluation-choices" class="nav-link" data-scroll-target="#objective-1-predictive-quality-and-the-effect-of-evaluation-choices">6.2 Objective 1: predictive quality and the effect of evaluation choices</a></li>
+  <li><a href="#objective-2-human-judgement-against-automated-selection" id="toc-objective-2-human-judgement-against-automated-selection" class="nav-link" data-scroll-target="#objective-2-human-judgement-against-automated-selection">6.3 Objective 2: human judgement against automated selection</a></li>
+  </ul></li>
+  <li><a href="#implementation" id="toc-implementation" class="nav-link" data-scroll-target="#implementation">7. Implementation</a>
+  <ul class="collapse">
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs">Outputs</a></li>
+  </ul></li>
+  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results">8. Expected results</a></li>
+  <li><a href="#pointers-for-interpretation" id="toc-pointers-for-interpretation" class="nav-link" data-scroll-target="#pointers-for-interpretation">9. Pointers for interpretation</a></li>
+  <li><a href="#decisions-taken-and-what-is-still-open" id="toc-decisions-taken-and-what-is-still-open" class="nav-link" data-scroll-target="#decisions-taken-and-what-is-still-open">10. Decisions taken, and what is still open</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">11. References</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7">Analysis plan</h1></header>
+
+<header id="title-block-header">
+
+
+<p class="date">2026-11-12</p>
+</header>
+
+
+<!-- The plan lives in plans/analysis-plan.md. Edit it there, not here. -->
+<section id="forecast-evaluation-and-model-selection-analysis-plan" class="level1">
+<h1>Forecast evaluation and model selection: analysis plan</h1>
+<p>Retrospective analysis of the epiforecasts <code>covid-us-forecasts</code> archive.</p>
+<p>Status: plan for discussion. Two of four planned steps are in scope now; the other two are described briefly so the wider design is visible.</p>
+<section id="context" class="level2">
+<h2 class="anchored" data-anchor-id="context">1. Context</h2>
+<p>Between May 2020 and March 2022 our group produced weekly forecasts of COVID-19 deaths for the 50 US states, DC and the US as a whole, at horizons of one to four weeks, and submitted one forecast each week to the US COVID-19 Forecast Hub run by the Reich Lab. Forecasts were probabilistic, expressed as 23 quantiles of the predictive distribution.</p>
+<p>Six models ran each week. Three were base models:</p>
+<ul>
+<li>an Rt model, fitting a renewal process directly to reported deaths</li>
+<li>a case convolution model, forecasting cases and then convolving them to deaths using an estimated delay and scaling</li>
+<li>a time series model, combining ARIMA and exponential smoothing forecasts of cases, with deaths regressed on cases</li>
+</ul>
+<p>Three were ensembles of those base models: a per-quantile mean, a per-quantile median, and a quantile regression average (QRA) that weights the base models by recent skill.</p>
+<p>Selection of the weekly submission followed a fixed rule with a human override. The QRA (trained on a four week window, four week horizon) was submitted by default, falling back to the median ensemble when the QRA was unavailable. A member of the team then reviewed a standard weekly report showing recent data, each model’s forecast per state, and the QRA weights, and could replace the forecast for specific states with a different model. Overrides were recorded and 37 weeks contain at least one.</p>
+<p>The archive retains all of this: every model’s forecast for every week, the ensemble forecasts, the file actually submitted, and the record of which states were overridden and to what. That completeness is what makes the analysis below possible.</p>
+</section>
+<section id="rationale" class="level2">
+<h2 class="anchored" data-anchor-id="rationale">2. Rationale</h2>
+<p>Two gaps motivate the work.</p>
+<p>The first is about evaluation itself. Forecast performance is usually reported as a single table of scores, which hides how much the conclusion depends on choices made before scoring: which metric, whether to standardise by population, whether to work on the natural or log scale. With six models, 52 locations, four horizons and around 100 weeks, this archive is large enough to show those dependencies concretely rather than assert them. There is a practical output here, a worked example that can serve as teaching material and as a package vignette for <code>scoringutils</code>.</p>
+<p>The second is about selection. Operational forecasting teams routinely combine an automated rule with expert judgement, but the value added by the human step is rarely measured, because the counterfactual is usually lost. Here it is not. We know what the automated rule would have submitted, what the human actually submitted, and what happened. That allows a direct comparison rather than a hypothetical one.</p>
+</section>
+<section id="aim-and-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="aim-and-objectives">3. Aim and objectives</h2>
+<p>Aim: use the archive to characterise how forecast evaluation choices affect conclusions about model performance, and to measure whether expert override of an automated selection rule improved forecast skill.</p>
+<p>Objectives:</p>
+<ol type="1">
+<li>Illustrate the process of evaluating performance across many models and many forecast targets, and show how metric and scale choices change what the evaluation says.</li>
+<li>Compare human judgement against automated selection, using the recorded overrides.</li>
+<li>Describe the contribution of individual models within an ensemble, both in our own ensembles and, as an extension, in the Hub ensemble our submission fed into.</li>
+</ol>
+</section>
+<section id="scope-where-this-sits-in-a-wider-design" class="level2">
+<h2 class="anchored" data-anchor-id="scope-where-this-sits-in-a-wider-design">4. Scope: where this sits in a wider design</h2>
+<p>The full design has four steps. Steps 3 and 4 are the subject of this plan. Steps 1 and 2 require refitting every model and are deferred.</p>
+<p>The wider idea is to separate the reasons our historical forecasts were as good or bad as they were. Three variants of each model can be defined:</p>
+<pre><code>                  era packages              modern packages
+                  (2020 to 2022)            (current)
+                 --------------------      -------------------
+ real-time       O = original
+ implementation  (what we submitted)
+                       |
+                       |  step 2: effect of real-time
+                       |          implementation
+                       v
+ careful         P = era rebuild   ------&gt;  M = modern rebuild
+ implementation                    step 1: effect of improved
+                                           methods and packages</code></pre>
+<p>Comparing O with P isolates the cost of building and running code under time pressure, holding the science fixed. Comparing P with M isolates the gain from improved methods and packages, holding implementation quality fixed. Steps 3 and 4 then score whatever variants exist and ask which model should have been chosen.</p>
+<p>For now, only O exists, so steps 3 and 4 run on the historical forecasts. The analysis is built so that adding P and M later requires only an extra column in the scored dataset.</p>
+<p>Two design points carry over from that wider plan and are worth stating, because they constrain step 3. Model inputs, when we eventually refit, must use the data as it stood at each forecast date, since data revision would otherwise be confounded with implementation. The outcome used for scoring is instead the final data. Steps 1 and 2 will also need to track which package versions were in use when, because the project followed the EpiNow2 development branch and that moved during the study period.</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">5. Data</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Item</th>
+<th>Source</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Forecasts, base models</td>
+<td><code>submissions/all-models/</code></td>
+<td>Hub long format, one file per week</td>
+</tr>
+<tr class="even">
+<td>Forecasts, ensembles</td>
+<td><code>ensembles/data/</code></td>
+<td>unweighted (mean, median) and weighted (QRA), plus QRA weights</td>
+</tr>
+<tr class="odd">
+<td>Submitted forecast</td>
+<td><code>submissions/submitted/</code></td>
+<td>the human-in-the-loop stream</td>
+</tr>
+<tr class="even">
+<td>Override records</td>
+<td><code>submissions/submission-notes/</code></td>
+<td>37 weeks, states swapped and to which model</td>
+</tr>
+<tr class="odd">
+<td>Outcome</td>
+<td>Reich Lab Hub incident deaths</td>
+<td>fixed at the March 2022 vintage, when JHU reporting ended</td>
+</tr>
+<tr class="even">
+<td>Population</td>
+<td><code>data/state_pop.csv</code></td>
+<td>for per-capita standardisation</td>
+</tr>
+<tr class="odd">
+<td>Reference forecasts</td>
+<td>Hub <code>data-processed/</code></td>
+<td>COVIDhub-baseline and COVIDhub-ensemble, matched on week, location and horizon</td>
+</tr>
+</tbody>
+</table>
+<p>Forecast files use the Hub format: forecast date, target (for example “1 wk ahead inc death”), target end date, location as a FIPS code, quantile level and value, and model name. The analysis uses incident deaths only. Cumulative death targets are derived arithmetically from incident ones in the submission code, so they carry no independent information.</p>
+<p>Fixing the outcome at a single data vintage matters. Reported deaths were revised repeatedly, and scoring against a moving target would make results depend on when the analysis was run.</p>
+<p>Two forecasts from outside our own set are needed. The Hub baseline is a naive reference that carries recent counts forward with uncertainty widening by horizon. It does two jobs here: it measures how hard each target was, and it is the anchor against which relative skill is reported. The Hub ensemble is the combined forecast our submission fed into, used as a comparator. Both are retrieved from the Hub repository for the same weeks, locations and horizons, and scored against the same outcome as everything else. The baseline is scored as a model in its own right rather than held separately, since pairwise comparison needs it inside the same scored object.</p>
+</section>
+<section id="methods" class="level2">
+<h2 class="anchored" data-anchor-id="methods">6. Methods</h2>
+<section id="common-scoring-framework" class="level3">
+<h3 class="anchored" data-anchor-id="common-scoring-framework">6.1 Common scoring framework</h3>
+<p>All scoring uses <code>scoringutils</code> (version 2.x). Forecasts are scored at the level of a single model, forecast date, target end date, location and horizon.</p>
+<p>The main metric is the weighted interval score (WIS), a proper score for quantile forecasts that rewards both accuracy and appropriate uncertainty. WIS decomposes into three parts, which we report separately because they answer different questions: overprediction, underprediction, and dispersion (how wide the forecast was). Alongside WIS we report absolute error of the median, bias, and how often the 50% and 90% prediction intervals contained the outcome.</p>
+<p>Everything is scored on three scales:</p>
+<ul>
+<li>natural, deaths as reported</li>
+<li>per 100,000 population</li>
+<li>log, after adding one to avoid taking the log of zero</li>
+</ul>
+<p>The reason for more than one scale is that deaths are highly skewed across states and over time. On the natural scale, a handful of large states during peak weeks dominate the average score, so a model can look good overall while being poor most of the time. Population standardisation and the log transform change what the average is averaging over. The log scale in particular shifts the question from absolute error to relative error, which is closer to what matters at low counts (Bosse et al.&nbsp;2023).</p>
+<p>Forecasts for the US as a whole are carried through every analysis but always reported separately from the states, since a national aggregate is a different kind of target and would otherwise sit as one very large outlier among 51 smaller ones.</p>
+<p>The pipeline is built once and cached, and both analyses read the same scored object:</p>
+<pre><code>forecasts (6 models) ─┐
+outcome (Mar 2022)  ──┼──► forecast object ──► scores on 3 scales ──► cached
+population          ─┘                                                  │
+                                                          ┌─────────────┴────────────┐
+                                                          v                          v
+                                            objective 1: evaluation     objective 2: selection</code></pre>
+</section>
+<section id="objective-1-predictive-quality-and-the-effect-of-evaluation-choices" class="level3">
+<h3 class="anchored" data-anchor-id="objective-1-predictive-quality-and-the-effect-of-evaluation-choices">6.2 Objective 1: predictive quality and the effect of evaluation choices</h3>
+<p>This is the descriptive half of the paper, and the source the vignette is later cut from. Six parts:</p>
+<ol type="1">
+<li>Describe the outcome before scoring anything. Weekly deaths over time and their distribution across states, raw and per capita. This makes the skew and the range across states visible, which motivates what follows.</li>
+<li>Score all six models on the natural scale. Report WIS with its components, absolute error, bias and interval coverage.</li>
+<li>Repeat on the per-capita and log scales, and compare model rankings across the three. The comparison is the point, not any single ranking.</li>
+<li>Take one model, the mean ensemble, and look at absolute error alone: overall, by horizon, and by state. This shows how much a single summary number hides.</li>
+<li>Set out how different metrics serve different needs. Catalogue what each metric answers; sketch three users with different concerns (someone allocating scarce resources who is most exposed to overprediction, someone planning surge capacity who is most exposed to the upper tail being too low, and a methodologist who wants one proper score plus a calibration check); show how model rankings change between metrics; and show which metrics move together, so a reader knows how many they need to look at.</li>
+<li>Close by noting where the P and M variants will slot in later.</li>
+</ol>
+</section>
+<section id="objective-2-human-judgement-against-automated-selection" class="level3">
+<h3 class="anchored" data-anchor-id="objective-2-human-judgement-against-automated-selection">6.3 Objective 2: human judgement against automated selection</h3>
+<p>This is a comparison where the analyst knows the outcome in advance, so it will be pre-registered. The pre-registration will be written and time stamped before any of these scores are computed. Objective 1 does not share this constraint, since it is descriptive and its conclusions do not depend on a hypothesis test.</p>
+<p><strong>Streams to compare.</strong></p>
+<pre><code> three base models
+        |
+        v
+      QRA (weights by recent skill)        &lt;-- automated stream (A)
+        |                                      median ensemble if QRA missing
+        |
+   weekly human review of standard report
+        |
+   override selected states (37 weeks)
+        v
+   submitted forecast                      &lt;-- human-in-the-loop stream (H)</code></pre>
+<p>A third stream, the best model per location and week chosen with hindsight, is computed as an upper bound on what any selection rule could achieve. It is not attainable in real time and will be labelled as such.</p>
+<p>Only the QRA is used as the automated comparator, since it already selects on skill; adding a second skill-based rule would not answer a different question.</p>
+<p><strong>Estimand.</strong> The difference in skill between H and A, measured as relative WIS on the log scale, on the location-weeks where an override actually happened. The comparison across all location-weeks is secondary, since most contain no human input and dilute the effect toward zero.</p>
+<p><strong>Reconstruction and its check.</strong> We rebuild A from the ensemble files and apply the recorded overrides to produce H, then verify that the rebuilt H matches the submitted files exactly. Any week that does not match is reported rather than quietly dropped. This check is what licenses the whole comparison, so it comes first.</p>
+<p><strong>Adjustment.</strong> Overrides were not made at random. A person looking at a weekly report intervenes where the automated forecast looks wrong, which will tend to be volatile states, turning points and weeks with reporting artefacts. Comparing H against A without accounting for this compares human judgement on hard problems against automation on all problems. We therefore stratify by horizon, by epidemic phase (growth, peak, decline, low), by target difficulty, and by whether an override occurred, and fit a model with random effects for location and week.</p>
+<p>Difficulty is measured as the Hub baseline model’s score for the same location, week and horizon, grouped into tiers. This puts difficulty in the same units as the thing being explained, and matches how skill is reported in the Hub literature, so our numbers can be read alongside published evaluations.</p>
+<p>The Hub ensemble is deliberately not used for this. Our submission was one of its components, so any change the human override made to our forecast also moved the Hub ensemble by a small amount. Adjusting for a variable that the treatment can affect risks removing part of the effect being measured. The Hub baseline is produced independently of us and carries no such feedback, so it is the safe choice. The Hub ensemble still appears as a comparator.</p>
+<p>Relative skill is computed by pairwise comparison against a fixed anchor rather than by averaging raw scores. Base models are missing for some location-weeks, and a model that skips difficult weeks would otherwise appear better than it was. The anchor is the Hub baseline, which is present for every location-week, is external to the set of models being evaluated, and is what published Hub evaluations report against, so our skill numbers can be read directly alongside that literature.</p>
+<p>Using the baseline as both the difficulty measure and the anchor needs one check, because a ratio conditioned on its own denominator can produce gradients that are artefacts. It does not affect the primary estimand. That estimand is a paired difference between the two streams on the same location-weeks, so on the log scale the baseline term is common to both and cancels exactly, leaving the ratio of the human to the automated score. The anchor choice therefore matters for reporting model-level skill in objectives 1 and 3, and for comparability with the literature, but not for the human against automated comparison. Where baseline score is genuinely the denominator, in the model-level results, we report a sensitivity analysis using an independent difficulty measure.</p>
+<p><strong>What the overrides did.</strong> The records say which state was overridden and to which model, but not why. Rather than treat every override as the same act, we characterise each one by its measurable effect on the forecast, and then ask which kinds helped.</p>
+<p>The distinction that matters is between what is fixed at the moment of the decision and what only becomes known later. Two properties of an override are settled as soon as the forecast is chosen, whatever the outcome turns out to be:</p>
+<ul>
+<li>the change in dispersion, that is whether the person picked a wider or narrower forecast than the automated one</li>
+<li>the change in the central estimate, that is the direction and size of the shift in the median</li>
+</ul>
+<p>Both are free of hindsight, so both can be fixed in advance as a way of grouping overrides. Anything else, including whether an override reduced overprediction or improved coverage, depends on the outcome and is a result rather than a grouping. Grouping by outcome-dependent quantities and then testing whether those groups did well would be circular.</p>
+<p>That gives a two-way typology, widened against narrowed and shifted up against shifted down, and a test of which types were associated with better skill.</p>
+<p>The attribution is then exact, because WIS is the sum of its three parts. The change in score from an override separates additively:</p>
+<pre><code>change in WIS = change in dispersion
+              + change in overprediction
+              + change in underprediction</code></pre>
+<p>We report that split for every override, overall and by type. It recovers what the records do not hold: whether the human step was mainly adjusting uncertainty, mainly adjusting the central estimate, or both, and which of those paid off. Bias and interval coverage are reported as diagnostics, but they do not decompose additively and are secondary.</p>
+<p><strong>Ensemble contribution.</strong> A regression of log-scale relative WIS on whether a model is an ensemble or a base model, with horizon as a covariate and random effects for location and week, quantifies the ensembling gain within our own set. This addresses objective 3.</p>
+<p><strong>Representative example.</strong> To make the results concrete we show one forecast in full. The location-week is chosen by rule, as the one whose relative WIS is closest to that model’s median, and the rule is fixed in the pre-registration so the example cannot be chosen to suit the conclusion.</p>
+<p><strong>Confirmatory and exploratory.</strong> Confirmatory: the H against A comparison, and the ensemble regression. Everything else, including the component decomposition by override type, interactions with phase and difficulty, and any per-state pattern, is exploratory and labelled that way. The typology is fixed in advance, but with 37 override weeks the per-type comparisons are descriptive rather than tests.</p>
+<p><strong>Sensitivity.</strong> Natural and per-capita scales alongside log; with and without the US national target; and an alternative outcome vintage.</p>
+</section>
+</section>
+<section id="implementation" class="level2">
+<h2 class="anchored" data-anchor-id="implementation">7. Implementation</h2>
+<p>R throughout, tidyverse style, dependencies pinned with <code>renv</code>, both analyses written in Quarto. The repository is around 1.5 GB because it stores every weekly forecast, so a sparse checkout of the forecast, submission and reference data directories is enough.</p>
+<p>Build order:</p>
+<ol type="1">
+<li><code>R/build_scores.R</code>, which assembles forecasts, outcome and population into one scored object on three scales and caches it. Both documents depend on this and nothing else.</li>
+<li><code>prereg.qmd</code>, written and time stamped before objective 2 scores are computed.</li>
+<li><code>vignette-scoring.qmd</code>, objective 1.</li>
+<li><code>analysis.qmd</code>, objective 2.</li>
+</ol>
+<p>The scored object carries a column for model variant, unused for now, so that adding the step 1 and 2 rebuilds later does not require reworking either document.</p>
+<section id="outputs" class="level3">
+<h3 class="anchored" data-anchor-id="outputs">Outputs</h3>
+<p>The primary output is a paper covering all three objectives. The line running through it is that how forecasts are evaluated determines which forecast gets chosen: objective 1 shows that evaluation choices change model rankings, objective 2 asks what happened when a person overrode a score-based rule, objective 3 quantifies what the ensembles contributed.</p>
+<p>Anticipated main figures:</p>
+<ol type="1">
+<li>The outcome: weekly deaths over time and across states, raw and per capita.</li>
+<li>Model rankings under each metric and each scale, showing where they disagree.</li>
+<li>Score by horizon and by location for a single model, showing what an overall average hides.</li>
+<li>The two selection streams over time, with the model actually submitted marked each week.</li>
+<li>Change in score from override, split into dispersion, overprediction and underprediction, by override type.</li>
+<li>Adjusted comparison of the human and automated streams by stratum, against the hindsight bound.</li>
+</ol>
+<p>The <code>scoringutils</code> vignette is cut from the objective 1 material once the paper is stable, condensed and rewritten with the package in the foreground rather than the epidemiology. Teaching material comes from the same source.</p>
+<p>Sketch of the core of the build, to show the shape:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># forecasts: our six models plus the Hub baseline and Hub ensemble,</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#            incident deaths, Hub long format</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># outcome:   Reich hub incident deaths, March 2022 vintage</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pop:       state populations</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>fc <span class="ot">&lt;-</span> forecasts <span class="sc">|&gt;</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type <span class="sc">==</span> <span class="st">"quantile"</span>) <span class="sc">|&gt;</span>                       <span class="co"># drop the point forecast rows</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">horizon =</span> <span class="fu">parse_number</span>(target)) <span class="sc">|&gt;</span>           <span class="co"># 1 to 4 weeks</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(outcome, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"location"</span>, <span class="st">"target_end_date"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pop, <span class="at">by =</span> <span class="st">"location"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geo =</span> <span class="fu">if_else</span>(location <span class="sc">==</span> <span class="st">"US"</span>, <span class="st">"national"</span>, <span class="st">"state"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">predicted =</span> value, <span class="at">quantile_level =</span> quantile) <span class="sc">|&gt;</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_forecast_quantile</span>(</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">forecast_unit =</span> <span class="fu">c</span>(<span class="st">"model"</span>, <span class="st">"forecast_date"</span>, <span class="st">"target_end_date"</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"location"</span>, <span class="st">"horizon"</span>, <span class="st">"geo"</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>scores <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">score</span>(fc)                                         <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">scale =</span> <span class="st">"natural"</span>),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">score</span>(<span class="fu">per_capita</span>(fc))                             <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">scale =</span> <span class="st">"per_100k"</span>),</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">score</span>(<span class="fu">transform_forecasts</span>(fc, log_shift, <span class="at">offset =</span> <span class="dv">1</span>)) <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">scale =</span> <span class="st">"log"</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="expected-results" class="level2">
+<h2 class="anchored" data-anchor-id="expected-results">8. Expected results</h2>
+<p>Stated in advance so that agreement or disagreement is informative.</p>
+<p>For objective 1, we expect the ensembles to score better than the base models on average, consistent with the wider forecast hub literature, and we expect coverage to fall short of nominal at longer horizons. The result we are most interested in is that model rankings change between the natural and the log or per-capita scales, because the natural scale is dominated by large states during peaks. If rankings turn out to be stable across scales, that is a useful finding for the teaching material and worth reporting plainly.</p>
+<p>On the components, we expect overrides to have widened forecasts more often than narrowed them, because the failure that stands out in a weekly review is an outcome falling outside the interval rather than an interval being too wide. If that holds, the cost appears as increased dispersion and the benefit as reduced underprediction, and the net effect depends on which dominates. A finding that overrides mostly moved the central estimate instead would point to a different kind of judgement being exercised, and is equally worth reporting.</p>
+<p>For objective 2 overall, the direction is open. Two patterns seem plausible. Overrides may be concentrated on the automated forecasts that were about to fail worst, in which case the human stream improves on the automated one, most visibly in the tail of the score distribution. Alternatively, overrides may reflect reaction to recent noise, in which case the human stream is slightly worse on average with wider variance. We expect the unadjusted comparison to be biased against the human stream, because intervention was concentrated on harder targets. The size of the gap between the attainable streams and the hindsight bound tells us how much any selection rule could have gained, which sets the scale for interpreting a small effect either way.</p>
+</section>
+<section id="pointers-for-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="pointers-for-interpretation">9. Pointers for interpretation</h2>
+<ul>
+<li>Scores on the log scale behave like ratios. A difference in relative WIS is multiplicative, not a number of deaths, and should be described that way.</li>
+<li>Keep the description of an override separate from its result. How wide or how high someone set the forecast describes the decision they made. Whether that was right is an outcome. The component decomposition is informative precisely because the grouping is fixed before the outcome is looked at.</li>
+<li>Rank changes across scales are a result, not a problem to be resolved by picking a favourite scale. The choice of scale encodes what the evaluator cares about, and the vignette should make that explicit rather than recommending one.</li>
+<li>The adjusted and stratified comparison is the primary read for objective 2. The unadjusted difference is descriptive and will understate the human contribution if overrides went to harder targets.</li>
+<li>The hindsight bound is not a target. It says how much selection could ever have gained, which is the context needed to judge whether a small human effect matters.</li>
+<li>Thirty-seven override weeks is not many, and overrides within a week are correlated across states. The analysis can plausibly detect a moderate effect and will not settle a small one. A null result should be reported as limited power, not as evidence that human input has no value.</li>
+<li>Conclusions apply to this team, this pathogen, this period and this automated rule. They do not generalise to expert judgement in forecasting as a whole.</li>
+<li>Reconstruction fidelity is a precondition. If the rebuilt human stream does not reproduce the submitted files, the comparison is measuring our reconstruction rather than the original decisions.</li>
+</ul>
+</section>
+<section id="decisions-taken-and-what-is-still-open" class="level2">
+<h2 class="anchored" data-anchor-id="decisions-taken-and-what-is-still-open">10. Decisions taken, and what is still open</h2>
+<p>Settled:</p>
+<ul>
+<li>The override records hold no stated reason, so overrides are characterised by their measurable effect on the forecast, split into a hindsight-free grouping and an outcome-dependent result (section 6.3).</li>
+<li>Difficulty is measured by the Hub baseline model’s score, not by observed volatility.</li>
+<li>The primary output is a paper. The vignette and teaching material are cut from it afterwards.</li>
+<li>The anchor for pairwise relative skill is the Hub baseline, which is also the difficulty measure. The two roles do not conflict for the primary estimand, where the baseline cancels.</li>
+</ul>
+<p>Still open, and worth a view before we start:</p>
+<ol type="1">
+<li>Definition of epidemic phase. Each location-week classified from the observed trajectory into growth, peak, decline or low, with thresholds fixed in advance. The rule still needs agreeing.</li>
+<li>Multiplicity. One primary estimand is designated. The correction applied across strata and secondary outcomes needs choosing.</li>
+<li>Whether the Hub ensemble comparison belongs in this paper or in the extension. It is the natural place to ask whether overrides that helped our submission also helped downstream, but it widens the scope.</li>
+<li>Which independent difficulty measure to use for the model-level sensitivity analysis, given the baseline now serves as the anchor. Observed volatility is the obvious candidate.</li>
+</ol>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">11. References</h2>
+<ul>
+<li>Bracher J, Ray EL, Gneiting T, Reich NG (2021). Evaluating epidemic forecasts in an interval format. PLoS Computational Biology 17(2): e1008618.</li>
+<li>Bosse NI, Abbott S, Cori A, van Leeuwen E, Bracher J, Funk S (2023). Scoring epidemiological forecasts on transformed scales. PLoS Computational Biology 19(8): e1011393.</li>
+<li>Cramer EY et al.&nbsp;(2022). Evaluation of individual and ensemble probabilistic forecasts of COVID-19 mortality in the United States. PNAS 119(15): e2113561119.</li>
+<li><code>scoringutils</code> documentation, https://epiforecasts.io/scoringutils</li>
+<li>Project code: <code>epiforecasts/covid-us-forecasts</code>, in particular <code>submissions/finalise.R</code> and <code>submissions/swap-ensembles.R</code> for the selection and override logic, and <code>ensembles/models/</code> for ensemble construction.</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/kathsherratt\.github\.io\/us-forecast-eval\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
