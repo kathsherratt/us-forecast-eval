@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - notebook/pages/*.qmd
+
+website:
+  title: "US forecast evaluation"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: notebook/pages/analysis-plan.qmd
+        text: Plan
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+execute:
+  freeze: true

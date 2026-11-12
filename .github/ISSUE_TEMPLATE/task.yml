@@ -1,0 +1,34 @@
+name: Task
+description: A piece of work on the evaluation. Add one step label (step:model, step:implementation, step:prediction, step:selection), or decision if it settles an open choice.
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      description: The task or question, in one or two sentences.
+    validations:
+      required: true
+
+  - type: input
+    id: plan
+    attributes:
+      label: Plan section
+      description: Which section of plans/analysis-plan.md this serves, e.g. 6.3.
+    validations:
+      required: false
+
+  - type: textarea
+    id: done
+    attributes:
+      label: What done looks like
+      description: A file, a figure, a decision written into the plan.
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Links
+      description: The kath-a-log handle, if scheduled. Related issues.
+    validations:
+      required: false

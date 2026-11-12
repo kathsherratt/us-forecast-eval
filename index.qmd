@@ -1,0 +1,28 @@
+---
+title: "US forecast evaluation"
+listing:
+  contents: notebook/pages
+  type: default
+  sort: "date desc"
+  categories: true
+  fields: [date, title, categories, description]
+---
+
+Notebook evaluating the weekly COVID-19 death forecasts that epiforecasts submitted to the US COVID-19 Forecast Hub between May 2020 and March 2022, using the archive in [epiforecasts/covid-us-forecasts](https://github.com/epiforecasts/covid-us-forecasts).
+
+Six models ran each week: three base models and three ensembles. A fixed rule chose the submission, and a person could override it for specific states. The archive keeps every model's forecast, the automated default, the file actually submitted and the override records, so the human step can be measured directly.
+
+## Design
+
+| Step | Question | Status |
+|---|---|---|
+| 1. Model quality | What would modern methods and packages have changed? | Parked |
+| 2. Implementation quality | What did building code under time pressure cost? | Parked |
+| 3. Predictive quality | How do evaluation choices change conclusions? | Planned |
+| 4. Model selection | Did human override improve on the automated rule? | Planned |
+
+The full plan is on the [Plan](notebook/pages/analysis-plan.qmd) page.
+
+All work is exploratory until the step 4 pre-registration is time-stamped.
+
+---

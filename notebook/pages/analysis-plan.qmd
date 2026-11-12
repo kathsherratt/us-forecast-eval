@@ -1,0 +1,11 @@
+---
+title: "Analysis plan"
+date: 2026-11-12
+categories: [plan]
+description: "Steps 3 and 4: predictive quality, and human judgement against automated selection."
+title-block-style: none
+---
+
+<!-- The plan lives in plans/analysis-plan.md. Edit it there, not here. -->
+
+{{< include /plans/analysis-plan.md >}}
